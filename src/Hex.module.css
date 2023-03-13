@@ -1,0 +1,44 @@
+.hex {
+  width: 100%;
+  text-align: center;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+  display: flex;
+  transition: all 0.2s ease;
+}
+
+.pipe {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.single {
+  height: 52%;
+  width: 5%;
+  background-color: black;
+  position: absolute;
+  left: 50%;
+  top: -2%;
+}
+
+.rotate60 {
+  transform: rotate(60deg);
+}
+
+.rotate120 {
+  transform: rotate(120deg);
+}
+.rotate180 {
+  transform: rotate(180deg);
+}
+.rotate240 {
+  transform: rotate(240deg);
+}
+.rotate300 {
+  transform: rotate(300deg);
+}

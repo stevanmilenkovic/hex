@@ -1,0 +1,10 @@
+.column {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: max-content;
+}
+
+.short {
+  margin-top: 0%;
+}
