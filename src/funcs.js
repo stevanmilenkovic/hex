@@ -54,51 +54,52 @@ export class Hex {
       i += 2;
     });
   }
-
-  adjustConnecting = (organizedHexes, index, n, m) => {
-    let limit = Boolean(m % 2)
-      ? organizedHexes.length - n - 1
-      : organizedHexes.length - n;
-
-    let lastIndex = n * m + Math.ceil(m / 2) - 1;
-
-    if (index < limit) {
-      if (!this[2] && index % (2 * n + 1) !== 0) {
-        organizedHexes[index + n][8] = false;
-      }
-      if (!this[4] && (index - n) % (2 * n + 1) !== 0) {
-        organizedHexes[index + n + 1][10] = false;
-      }
-      if (
-        !this[6] &&
-        (index - n) % (2 * n + 1) !== 0 &&
-        (index - 2 * n) % (2 * n + 1) !== 0
-      ) {
-        organizedHexes[index + 1][12] = false;
-      }
-      if (this[2]) {
-        organizedHexes[index + n].must.push(8);
-      }
-      if (this[4]) {
-        organizedHexes[index + n + 1].must.push(10);
-      }
-      if (this[6]) {
-        organizedHexes[index + 1].must.push(12);
-      }
-    } else if (index >= limit && index !== lastIndex) {
-      if (
-        !this[6] &&
-        (index - n) % (2 * n + 1) !== 0 &&
-        (index - 2 * n) % (2 * n + 1) !== 0
-      ) {
-        organizedHexes[index + 1][12] = false;
-      }
-      if (this[6]) {
-        organizedHexes[index + 1].must.push(12);
-      }
-    }
-  };
 }
+
+const adjustConnecting = (hex, organizedHexes, index, n, m) => {
+  console.log("entering hexclass func");
+  let limit = Boolean(m % 2)
+    ? organizedHexes.length - n - 1
+    : organizedHexes.length - n;
+
+  let lastIndex = n * m + Math.ceil(m / 2) - 1;
+
+  if (index < limit) {
+    if (!hex[2] && index % (2 * n + 1) !== 0) {
+      organizedHexes[index + n][8] = false;
+    }
+    if (!hex[4] && (index - n) % (2 * n + 1) !== 0) {
+      organizedHexes[index + n + 1][10] = false;
+    }
+    if (
+      !hex[6] &&
+      (index - n) % (2 * n + 1) !== 0 &&
+      (index - 2 * n) % (2 * n + 1) !== 0
+    ) {
+      organizedHexes[index + 1][12] = false;
+    }
+    if (hex[2]) {
+      organizedHexes[index + n].must.push(8);
+    }
+    if (hex[4]) {
+      organizedHexes[index + n + 1].must.push(10);
+    }
+    if (hex[6]) {
+      organizedHexes[index + 1].must.push(12);
+    }
+  } else if (index >= limit && index !== lastIndex) {
+    if (
+      !hex[6] &&
+      (index - n) % (2 * n + 1) !== 0 &&
+      (index - 2 * n) % (2 * n + 1) !== 0
+    ) {
+      organizedHexes[index + 1][12] = false;
+    }
+    if (hex[6]) {
+      organizedHexes[index + 1].must.push(12);
+    }
+  }
+};
 
 export const hexCreator = (name, bools, hexArray) => {
   const hexes = [];
@@ -133,8 +134,6 @@ export const compatibilityChecker = (hexes, organizedHexes, index, n, m) => {
   });
 
   let hexToSet = randomElement(possible);
-  hexToSet.adjustConnecting(organizedHexes, index, n, m);
+  adjustConnecting(hexToSet, organizedHexes, index, n, m);
   return hexToSet;
 };
-
-export const addMust = (hex, slot) => {};
