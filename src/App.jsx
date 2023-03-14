@@ -12,18 +12,12 @@ function App() {
     randomElement(generateArray(7, 5))
   );
 
-  const [solved, setSolved] = useState(false);
-
   const [level, setLevel] = useState(1);
 
   const padding = (100 / columnsNumber) * 0.1339 * (columnsNumber - 1);
 
   const hexesSet = generator(hexesInColumn, columnsNumber);
   const rotation = hexesSet.map((elem) => randomElement(generateArray(6)));
-
-  const solvedHandler = () => {
-    setSolved(true);
-  };
 
   const buttonHandler = () => {
     setHexesInColumn(randomElement(generateArray(8, 5)));
@@ -40,8 +34,6 @@ function App() {
           hexesSet={hexesSet}
           rotation={rotation}
           padding={padding}
-          solved={solved}
-          solvedListener={solvedHandler}
           buttonListener={buttonHandler}
         />
       </div>
