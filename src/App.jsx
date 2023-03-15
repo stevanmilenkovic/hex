@@ -19,7 +19,7 @@ function App() {
   const hexesSet = generator(hexesInColumn, columnsNumber);
   const rotation = hexesSet.map((elem) => randomElement(generateArray(6)));
 
-  const buttonHandler = () => {
+  const nextHandler = () => {
     setHexesInColumn(randomElement(generateArray(8, 5)));
     setColumnsNumber(randomElement(generateArray(7, 5)));
     setLevel((prev) => prev + 1);
@@ -34,7 +34,7 @@ function App() {
           hexesSet={hexesSet}
           rotation={rotation}
           padding={padding}
-          buttonListener={buttonHandler}
+          nextListener={nextHandler}
         />
       </div>
     </div>

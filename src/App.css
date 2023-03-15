@@ -10,6 +10,12 @@
   box-sizing: border-box;
   display: flex;
   padding: 0;
+  background: linear-gradient(
+    9deg,
+    rgba(139, 127, 59, 1) 0%,
+    rgba(183, 170, 117, 1) 50%,
+    rgba(255, 240, 211, 1) 100%
+  );
 }
 
 .main {
@@ -22,15 +28,24 @@
 
 .container {
   height: max-content;
-  background: white;
   display: flex;
   border-radius: 20px;
-  padding-right: 0;
+  padding: 15px 0;
   transition: all 0.2s ease;
   position: relative;
+  box-shadow: 13px 11px 25px -7px rgba(0, 0, 0, 0.75);
 }
 
-.button {
+.buttons {
+  position: absolute;
+  left: 50%;
+  bottom: -60px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+}
+
+button {
   padding: 0;
   height: 50px;
   width: 50px;
@@ -39,17 +54,19 @@
   line-height: 22px;
   cursor: pointer;
   user-select: none;
-  border: 1px solid black;
+  border: none;
   transition: all 0.2s ease;
-  background-color: white;
+  background: rgba(255, 250, 211, 1);
   color: rgb(105, 0, 0);
-  position: absolute;
-  left: 50%;
-  bottom: -60px;
-  transform: translateX(-50%);
+
+  box-shadow: 13px 11px 25px -7px rgba(0, 0, 0, 0.75);
 }
 
-button:hover {
-  background-color: black;
-  color: white;
+button:not([disabled]):hover {
+  background: rgba(46, 46, 46, 1);
+  color: rgba(255, 240, 211, 1);
+}
+
+button[disabled] {
+  cursor: default;
 }
