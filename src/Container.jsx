@@ -44,7 +44,7 @@ const Container = ({
         width: `${columnsNumber * 70}px`,
         maxWidth: "80vw",
         paddingLeft: `${padding}%`,
-        background: `${solved ? "#211907" : "rgba(255, 250, 211, 1)"}`,
+        background: `${solved ? "#211907" : "white"}`,
       }}
     >
       {generateArray(columnsNumber).map((elem) => (
