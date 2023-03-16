@@ -34,7 +34,6 @@ const Container = ({
 
   const refreshHandler = () => {
     setHexRotation([...rotation]);
-    console.log("click");
   };
 
   return (

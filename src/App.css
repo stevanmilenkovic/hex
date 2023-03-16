@@ -10,6 +10,7 @@
   box-sizing: border-box;
   display: flex;
   padding: 0;
+  height: 100%;
   background: linear-gradient(
     9deg,
     rgba(139, 127, 59, 1) 0%,
@@ -31,6 +32,7 @@
   display: flex;
   border-radius: 20px;
   padding: 15px 0;
+  padding-bottom: 80px;
   transition: all 0.2s ease;
   position: relative;
   box-shadow: 13px 11px 25px -7px rgba(0, 0, 0, 0.75);
@@ -39,7 +41,7 @@
 .buttons {
   position: absolute;
   left: 50%;
-  bottom: -60px;
+  bottom: 20px;
   transform: translateX(-50%);
   display: flex;
   gap: 20px;
@@ -58,13 +60,12 @@ button {
   transition: all 0.2s ease;
   background: white;
   color: rgb(105, 0, 0);
-
-  box-shadow: 13px 11px 25px -7px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.75);
 }
 
 button:not([disabled]):hover {
-  background: rgba(46, 46, 46, 1);
-  color: rgba(255, 240, 211, 1);
+  background: #211907;
+  color: wheat;
 }
 
 button[disabled] {

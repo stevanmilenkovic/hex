@@ -57,7 +57,6 @@ export class Hex {
 }
 
 const adjustConnecting = (hex, organizedHexes, index, n, m) => {
-  console.log("entering hexclass func");
   let limit = Boolean(m % 2)
     ? organizedHexes.length - n - 1
     : organizedHexes.length - n;
